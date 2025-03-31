@@ -31,13 +31,9 @@ const getSymbol = () => {
     return symbols[Math.floor(Math.random() * symbols.length)];
 };
 
-const generatePassword = (getLetterLowerCase, getLetterUpperCase, getNumber, getSymbol) => {
-
-    let password = ""
-
-    // Second version
+const generatePassword = () => {
+    let password = "";
     const passwordLength = +lengthInput.value;
-
     const generators = [];
 
     if(lettersInput.checked) {
@@ -51,31 +47,69 @@ const generatePassword = (getLetterLowerCase, getLetterUpperCase, getNumber, get
     if(symbolsInput.checked) {
         generators.push(getSymbol);
     }
-    
-    console.log(generators.length);
 
-    if(generatePassword.length === 0) {
+    // Error handling for when no character type is selected
+    if(generators.length === 0) {
+        alert("Please select at least one character type");
         return;
     }
 
-    for(i = 0; i < passwordLength; i = i + generators.length) {
-        generators.forEach(() => {
-
-            const randomValue = 
-            generators[Math.floor(Math.random() * generators.length)]();
-
-            password += randomValue;
-        });
+    // Password generation loop
+    for(let i = 0; i < passwordLength; i++) {
+        const randomGenerator = generators[Math.floor(Math.random() * generators.length)];
+        password += randomGenerator();
     }
-
-    password = password.slice(0, passwordLength);
-        
-    console.log(password);
-
+    
+    // Display the generated password
     generatePasswordElement.style.display = "block";
     generatePasswordElement.querySelector("h4").innerText = password;
-
 };
+
+// const generatePassword = (getLetterLowerCase, getLetterUpperCase, getNumber, getSymbol) => {
+
+//     let password = ""
+
+//     // Second version
+//     const passwordLength = +lengthInput.value;
+
+//     const generators = [];
+
+//     if(lettersInput.checked) {
+//         generators.push(getLetterLowerCase, getLetterUpperCase);
+//     }
+
+//     if(numbersInput.checked) {
+//         generators.push(getNumber);
+//     }
+
+//     if(symbolsInput.checked) {
+//         generators.push(getSymbol);
+//     }
+    
+//     console.log(generators.length);
+
+//     if(generatePassword.length === 0) {
+//         return;
+//     }
+
+//     for(i = 0; i < passwordLength; i = i + generators.length) {
+//         generators.forEach(() => {
+
+//             const randomValue = 
+//             generators[Math.floor(Math.random() * generators.length)]();
+
+//             password += randomValue;
+//         });
+//     }
+
+//     password = password.slice(0, passwordLength);
+        
+//     console.log(password);
+
+//     generatePasswordElement.style.display = "block";
+//     generatePasswordElement.querySelector("h4").innerText = password;
+
+// };
 
 
 // Events

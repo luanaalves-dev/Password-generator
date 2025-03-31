@@ -5,48 +5,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="description" content="Create your account and register for our services">
+    <title>Register Account | Your Website</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="CSS/styles.css" />
     <script src="js/scripts.js" defer></script>
 </head>
 
 <body>
-    <div id="register-container">
-        <div id="register-banner">
+    <main id="register-container">
+        <section id="register-banner">
             <div id="banner-layer">
                 <h1>Welcome!</h1>
             </div>
-        </div>
-        <div id="form-container">
-            <div id="register-form">
+        </section>
+        <section id="form-container">
+            <form id="register-form" method="post" novalidate>
                 <h2>Create your account:</h2>
                 <p>Register to use all the features of the system</p>
 
                 <div class="form-control">
                     <label for="name">Name</label>
-                    <input type="text" name="name" id="name" placeholder="Enter your name">
+                    <input type="text" name="name" id="name" placeholder="Enter your name" required>
                 </div>
                 <div class="form-control">
                     <label for="email">Email</label>
-                    <input type="text" type="email" id="email" placeholder="Enter your email">
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
                 </div>
                 <div class="form-control">
                     <label for="password">Password</label>
-                    <input type="text" type="password" id="password" placeholder="Enter your password">
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
                 </div>
                 <p>Need help creating a secure password?
-                    <span id="open-generate-password">Click here.</span>
+                    <span id="open-generate-password" tabindex="0" role="button" aria-expanded="false" aria-controls="generate-options">Click here.</span>
                 </p>
-                <div id="generate-options" class="hide">
+                <div id="generate-options" class="hide" aria-hidden="true">
                     <p>Select the options you want</p>
                     <div class="form-control">
                         <label for="length">Number of characters:</label>
-                        <input type="text" id="length" name="length" value="10">
+                        <input type="number" id="length" name="length" value="10" min="6" max="32">
                     </div>
                     <div class="form-control">
                         <label for="letters">Letters:</label>
@@ -54,27 +55,27 @@
                     </div>
                     <div class="form-control">
                         <label for="numbers">Numbers</label>
-                        <input type="checkbox" id="numbers" name=" numbers" checked/>
+                        <input type="checkbox" id="numbers" name="numbers" checked/>
                     </div>
                     <div class="form-control">
                         <label for="symbols">Symbols</label>
                         <input type="checkbox" id="symbols" name="symbols" checked/>
                     </div>
-                    <button id="generate-password">Create password</button>
+                    <button type="button" id="generate-password">Create password</button>
                 </div>
-                <div id="generated-password">
+                <div id="generated-password" aria-live="polite">
                     <p>Here is your password:</p>
                     <h4></h4>
-                    <button id="copy-password">Copy</button>
+                    <button type="button" id="copy-password">Copy</button>
                 </div>
                 <div class="form-control">
                     <label for="confirmpassword">Password confirmation</label>
-                    <input type="text" name="confirmpassword" id="confirmpassword" placeholder="Confirm your password">
+                    <input type="password" name="confirmpassword" id="confirmpassword" placeholder="Confirm your password" required>
                 </div>
                 <input type="submit" value="Register" />
-            </div>
-        </div>
-    </div>
+            </form>
+        </section>
+    </main>
 </body>
 
 </html>
