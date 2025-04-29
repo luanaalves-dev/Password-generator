@@ -25,11 +25,11 @@ Gained advanced knowledge of JavaScript applications and modern HTML/CSS structu
 
 ✅ Copy to clipboard" button for enhanced usability  
 
-✅ User-friendly interface** with Pure CSS & Tailwind CSS  
+✅ User-friendly interface** with Pure CSS  
 
 ✅ Fully responsive layout with clean, modern design  
 
-✅ Developed without frameworks, pure JavaScript, HTML, and CSS  
+✅ Developed without frameworks, pure HTML, CSS, JavaScript (ES6+)
 
     
 ##
